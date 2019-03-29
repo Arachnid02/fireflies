@@ -27,3 +27,8 @@ for i in range(100):
     starRadius = randint(1, 5)
     starColor = "Yellow"
     draw_stars(starX, starY, starRadius, starColor, window)
+
+moon = Oval(Point(850, 770), Point(950,670))
+moon.setFill(color_rgb(215,215,215))
+moon.setOutline(color_rgb(0, 55, 0))
+moon.draw(window)
