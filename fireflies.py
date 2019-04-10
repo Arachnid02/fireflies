@@ -1,21 +1,34 @@
 from graphics import *
 from random import *
 
+def draw_circle(X, Y, rad, col, window):
+    circle = Circle(Point(X,Y), rad)
+    circle.setFill(col)
+    circle.setOutline(col)
+    circle.draw(window)
+    
 def draw_stars(X, Y, rad, col, window):
     star = Circle(Point(X, Y), rad)
     star.setFill(col)
     star.setOutline(col)
     star.draw(window)
 
+def draw_sunflowers(X, Y, rad, col1, col2, window):
+    flower1Core = draw_circle(X, Y, rad, col1, window)
+    for i in range(5):
+        flower1Pedal = draw_circle(X - rad, Y - rad, rad, col2, window)
+
 window = GraphWin("Starry Night", 1000, 800)
 window.setCoords(0, 0, 1000, 800)
 window.setBackground(color_rgb(29, 0, 51))
 
+#grass
 grass = Rectangle(Point(0, 0), Point(1000, 200))
 grass.setFill(color_rgb(0, 55, 0))
 grass.setOutline(color_rgb(0, 55, 0))
 grass.draw(window)
 
+#hill
 hill = Oval(Point(100, 330), Point(900,-600))
 hill.setFill(color_rgb(0,55,0))
 hill.setOutline(color_rgb(0, 55, 0))
@@ -28,6 +41,23 @@ for i in range(100):
     starColor = "Yellow"
     draw_stars(starX, starY, starRadius, starColor, window)
 
+#sunflower
+    
+stem = Rectangle(Point(50, 195), Point(52, 170))
+stem.setFill(color_rgb(152,251,152))
+stem.setOutline(color_rgb(152,251,152))
+stem.draw(window)
+
+sunflowerX = 50
+sunflowerY = 200
+sunflowerRadius = 8
+sunflowerColor1 = (color_rgb(43, 29, 14))
+sunflowerColor2 = "yellow"
+draw_sunflowers(sunflowerX, sunflowerY, sunflowerRadius, sunflowerColor1,
+                sunflowerColor2, window)
+
+
+#moon
 moon = Oval(Point(850, 770), Point(950,670))
 moon.setFill(color_rgb(215,215,215))
 moon.setOutline(color_rgb(0, 55, 0))
